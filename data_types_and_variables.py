@@ -3,35 +3,55 @@
 # Hercules (1 day, you don't know yet if they're going to like it). 
 # If price for a movie per day is 3 dollars, how much will you have to pay?
 
-Little_Mermaid = 3
-Brother_Bear = 5
-Hercules = 1
+little_mermaid = 3
+brother_bear = 5
+hercules = 1
 
 rental_fee = 3
 
-(Little_Mermaid * rental_fee) + (Brother_Bear * rental_fee) + (Hercules * rental_fee)
+total_fees = (little_mermaid * rental_fee) + (brother_bear * rental_fee) + (hercules * rental_fee)
+
+print (f'Total rental fees are {total_fees}.')
 
 # Suppose you're working as a contractor for 3 companies: Google, Amazon and Facebook, and they pay 
 # you a different rate per hour. Google pays 400 dollars per hour, Amazon 380, and Facebook 350. 
 # How much will you receive in payment for this week? You worked 10 hours for Facebook, 
 # 6 hours for Google and 4 hours for Amazon.
 
-Google = 400
-Amazon = 380
-Facebook = 350
+google = 400
+amazon = 380
+facebook = 350
 
-(Google * 6) + (Amazon * 4) + (Facebook * 10)
+g_hours = 6
+a_hours = 4
+f_hours = 10
+
+earnings = (Google * G_hours) + (Amazon * A_hours) + (Facebook * F_hours)
+
+print (f'Total earnings are {earnings}.')
 
 # A student can be enrolled to a class only if the class is not full and the class 
 # schedule does not conflict with her current schedule.
 
-class_is_not_full = True
-has_conflict = False
+class_not_full = True or False
+no_conflict = True or False
 
-can_be_enrolled = class_is_not_full and has_conflict
+if class_not_full and no_conflict:
+    print ('You CAN enroll in this class.')
+else:
+    print ('You CAN NOT enroll in this class.')
 
 # A product offer can be applied only if people buys more than 2 items, and the offer has 
 # not expired. Premium members do not need to buy a specific amount of products.
 
-premium_member = False
-not_expired = True
+premium_member = True or False
+offer_valid = True or False
+
+if premium_member and offer_valid:
+    total_cost = (product_cost * discount) * item_count
+elif offer_valid and item_count >= 2:
+    total_cost = (product_cost * discount) * item_count
+else:
+    total_cost = product_cost * item_count
+
+print (total_cost)
