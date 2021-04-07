@@ -1,3 +1,6 @@
+# Data Types, Operators, and Variables
+# Exercises
+
 # You have rented some movies for your kids: The little mermaid (for 3 days), 
 # Brother Bear (for 5 days, they love it), and 
 # Hercules (1 day, you don't know yet if they're going to like it). 
@@ -26,7 +29,7 @@ g_hours = 6
 a_hours = 4
 f_hours = 10
 
-earnings = (Google * G_hours) + (Amazon * A_hours) + (Facebook * F_hours)
+earnings = (google * g_hours) + (amazon * a_hours) + (facebook * f_hours)
 
 print (f'Total earnings are {earnings}.')
 
@@ -55,3 +58,33 @@ else:
     total_cost = product_cost * item_count
 
 print (total_cost)
+
+# Use the following code to follow the instructions below:
+
+username = 'codeup'
+password = 'notastrongpassword'
+
+# the password must be at least 5 characters
+
+is_greater_than_5 = len(username) > 5
+
+print (is_greater_than_5)
+
+# the username must be no more than 20 characters
+
+no_more_than_20 = len(password) <= 20
+
+print (no_more_than_20)
+
+# the password must not be the same as the username
+
+not_same = password == username
+
+print (not_same)
+
+# bonus neither the username or password can start or end with whitespace
+
+spaces = not (username.startswith(' ') or username.endswith(' ') or password.startswith(' ') 
+or password.endswith(' '))
+
+print (spaces)
