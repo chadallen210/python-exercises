@@ -66,7 +66,7 @@ password = 'notastrongpassword'
 
 # the password must be at least 5 characters
 
-is_greater_than_5 = len(username) > 5
+is_greater_than_5 = len(username) >= 5
 
 print (is_greater_than_5)
 
