@@ -29,18 +29,20 @@ uppercased_fruits = [fruit.upper() for fruit in fruits]
 
 capitalized_fruits = [fruit.capitalize() for fruit in fruits]
 
+# OR
+
+capitalized_fruits = [fruit.title() for fruit in fruits]
+
 # Exercise 3 - Use a list comprehension to make a variable named 
 # fruits_with_more_than_two_vowels. Hint: You'll need a way to check if 
 # something is a vowel.
 
-vowel = [a, e, i, o, u, A, E, I, O, U]
-
-fruits_with_more_than_two_vowels = [for fruit in fruits if ]
+fruits_with_more_than_two_vowels = [fruit for fruit in fruits if len([letter for letter in fruit if letter in 'aeiou']) > 2]
 
 # Exercise 4 - make a variable named fruits_with_only_two_vowels. 
 # The result should be ['mango', 'kiwi', 'strawberry']
 
-fruits_with_only_two_vowels = []
+fruits_with_only_two_vowels = [fruit for fruit in fruits if len([letter for letter in fruit if letter in 'aeiou']) == 2]
 
 # Exercise 5 - make a list that contains each fruit with more than 5 characters
 
@@ -57,12 +59,12 @@ fruits_with_less_than_5 = [fruit for fruit in fruits if len(fruit) < 5]
 # Exercise 8 - Make a list containing the number of characters in each fruit. 
 # Output would be [5, 4, 10, etc... ]
 
-characters_in_fruit = []
+characters_in_fruit = [len(fruit) for fruit in fruits]
 
 # Exercise 9 - Make a variable named fruits_with_letter_a that contains a list of 
 # only the fruits that contain the letter "a"
 
-fruit_with_a = [fruit for fruit in fruits if letter in fruit ]
+fruit_with_a = [fruit for fruit in fruits if 'a' in fruit]
 
 # Exercise 10 - Make a variable named even_numbers that holds only the even numbers 
 
@@ -85,7 +87,9 @@ negative_numbers = [number for  number in numbers if number < 0]
 # Exercise 14 - use a list comprehension w/ a conditional in order to produce a list 
 # of numbers with 2 or more numerals
 
-number_with_more_than_2_digits = [number for number in numbers if len(number) >= 2]
+number_with_more_than_2_digits = [number for number in numbers if number >= 10 or number <= -10]
+
+number_with_more_than_2_digits = [number for number in numbers if len(str(abs(number))) >= 2]
 
 # Exercise 15 - Make a variable named numbers_squared that contains the numbers list 
 # with each element squared. Output is [4, 9, 16, etc...]
@@ -95,8 +99,7 @@ numbers_squared = [number ** 2 for number in numbers]
 # Exercise 16 - Make a variable named odd_negative_numbers that contains only the 
 # numbers that are both odd and negative.
 
-odd_negative_numbers = [number for number in numbers if number % 2 != 0 
-and number < 0]
+odd_negative_numbers = [number for number in numbers if number % 2 != 0 and number < 0]
 
 # Exercise 17 - Make a variable named numbers_plus_5. In it, return a list 
 # containing each number plus five.
@@ -104,3 +107,5 @@ and number < 0]
 numbers_plus_5 = [number + 5 for number in numbers] 
 
 # BONUS Make a variable named "primes" that is a list containing the prime numbers in the numbers list. *Hint* you may want to make or find a helper function that determines if a given number is prime or not.
+
+primes = [number for number in numbers if all(number % num != 0 for num in range(2, number)) and  number > 0]
