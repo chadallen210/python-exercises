@@ -167,7 +167,7 @@ while number > 0:
 # - For the multiples of five print "Buzz".
 # - For numbers which are multiples of both three and five print "FizzBuzz".
 
-for n in range(1, 20):
+for n in range(1, 101):
     if n % 5 == 0 and n % 3 == 0:
         print('FizzBuzz')
     elif n % 5 == 0:
@@ -190,11 +190,17 @@ while True:
         number = int(number)
         if number > 0:
             break
-print('Here is your table!')
-print('number | squared | cubed')
-print('------ | ------- | -----')
-for n in range(1, number + 1):
-    print(n, n ** 2, n ** 3)
+print('This program will create a table of powers for your number.')
+proceed = input('Would you like to continue? ')
+if proceed.lower().startswith('y'):
+    print()
+    print('Here is your table!')
+    print('number | squared | cubed')
+    print('------ | ------- | -----')
+    for n in range(1, number + 1):
+        n_squared = n ** 2
+        n_cubed = n ** 3
+        print(f'{n: 6} | {n_squared: 7} | {n_cubed: 5}')
 
 # 5. Convert given number grades into letter grades.
 # - Prompt the user for a numerical grade from 0 to 100.
@@ -228,3 +234,37 @@ elif number in range(60, 67):
 else:
     print('Your grade is an F.')
 
+# 6. Create a list of dictionaries where each dictionary represents a book that 
+# you have read. Each dictionary in the list should have the keys title, author, 
+# and genre. Loop through the list and print out information about each book.
+
+bookshelf = [
+    {'title': 'Game of Thrones',
+    'author': 'George R. R. Martin',
+    'genre': 'Fantasy'},
+    {'title': 'The Anatomy of Evil',
+    'author': 'Michael H. Stone MD',
+    'genre': 'True Crime'},
+    {'title': 'Tales from Margaritaville',
+    'author': 'Jimmy Buffett',
+    'genre': 'Humour'},
+]
+
+for book in bookshelf:
+    for key in book:
+        print(key, ': ', book[key])
+    print('-----------------------------------')
+
+# -a. Prompt the user to enter a genre, then loop through your books list and 
+# print out the titles of all the books in that genre.
+
+while True:
+    print('Please choose a genre.') 
+    choice = input('Enter either Fantasy, True Crime or Humour: ')
+    if choice.lower() in ('fantasy', 'true crime', 'humour'):
+        break
+for book in bookshelf:
+    if choice.lower() == book['genre'].lower():
+        for key in book:
+            print(key, ': ', book[key])
+print('-----------------------------------')
