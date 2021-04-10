@@ -30,14 +30,74 @@ print(f'dark = {dark_count}')
 
 # 3. How many types of each pet are there?
 
-
+horses = []
+dogs = []
+cats = []
+for student in students:
+    pets = student['pets']
+    for species in pets:
+        pet_species = species['species'] 
+        if pet_species == 'horse':
+            horses.append(pet_species)
+        elif pet_species == 'dog':
+            dogs.append(pet_species)
+        elif pet_species == 'cat':
+            cats.append(pet_species)
+print(f'horses = {len(horses)}')
+print(f'dogs = {len(dogs)}')
+print(f'cats = {len(cats)}')
 
 # 4. How many grades does each student have? Do they all have the same number of grades?
+
+for student in students:
+    print(student['student'], 'has ', len(student['grades']), 'grades.')
+print('\nAll students have', len(student['grades']), 'grades.')
+
 # 5. What is each student's grade average?
+
+for student in students:
+    print(student['student'], "'s grade average is", sum(student['grades']) / len(student['grades']))
+
 # 6. How many pets does each student have?
+
+for student in students:
+    print(student['student'], 'has', len(student['pets']), 'pets.')
+
 # 7. How many students are in web development? data science?
+
+web = 0
+data = 0
+for student in students:
+    if student['course'] == 'web development':
+        web +=1
+    elif student['course'] == 'data science':
+        data += 1
+print(f'Web Development has {web} students.')
+print(f'Data Science has {data} students.')
+
 # 8. What is the average number of pets for students in web development?
+
+web = 0
+pets = 0
+for student in students:
+    if student['course'] == 'web development':
+        web += 1
+        pets += len(student['pets'])
+print('Web Development students have an average of ', (pets / web), ' pets.')
+
 # 9. What is the average pet age for students in data science?
+
+total_age = 0
+number_pets = 0
+for student in students:
+    if student['course'] == 'data science':
+        pets = student['pets']
+        for pet in pets:
+            total_age += pet['age']
+            number_pets += 1
+average_age = (total_age / number_pets)            
+print(f'The average pet age for students in Data Science is {average_age}.')
+
 # 10. What is most frequent coffee preference for data science students?
 # 11. What is the least frequent coffee preference for web development students?
 # 12. What is the average grade for students with at least 2 pets?
@@ -49,3 +109,4 @@ print(f'dark = {dark_count}')
 # 18. What is the most common type of pet for web development students?
 # 19. What is the average name length?
 # 20. What is the highest pet age for light coffee drinkers?
+
