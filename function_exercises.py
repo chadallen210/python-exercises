@@ -72,7 +72,7 @@ apply_discount(50, 10)
 # a number that contains commas in it as input, and return a number as output.
 
 def handle_commas(value):
-    new_value = int(value.replace(',', ''))
+    new_value = float(value.replace(',', ''))
     return new_value
 
 handle_commas('1,000,000')
@@ -81,16 +81,17 @@ handle_commas('1,000,000')
 # return the letter grade associated with that number (A-F).
 
 def get_letter_grade(number):
-    if number >= 90:
-        return 'A'
-    elif number >= 80:
-        return 'B'
-    elif number >= 70:
-        return 'C'
-    elif number >= 60:
-        return 'D'
-    else:
-        return 'F'
+    if type(number) == int or type(number) == float:
+        if number >= 90:
+            return 'A'
+        elif number >= 80:
+            return 'B'
+        elif number >= 70:
+            return 'C'
+        elif number >= 60:
+            return 'D'
+        else:
+            return 'F'
 
 get_letter_grade(75)
 
@@ -99,8 +100,9 @@ get_letter_grade(75)
 
 def remove_vowels(value):
     vowels = ['a','e','i','o','u','A','E','I','O','U']
-    for character in vowels:
-        value = value.replace(character, '')
+    for character in value:
+        if character in vowels:
+            value = value.replace(character, '')
     return value
 
 remove_vowels('tree')
@@ -112,11 +114,14 @@ remove_vowels('tree')
 # - everything should be lowercase
 # - spaces should be replaced with underscores
 
-letters = []
-for letter in word:
-    if letter.isalnum() or letter == ' ':
-        letters.append(letter)
-        
+def remove_symbols(word):
+    characters = []
+    for letter in word:
+        if letter.isalnum() or letter == ' ' or letter == '_':
+            characters.append(letter)
+
+def
+
 # 11. Write a function named cumulative_sum that accepts a list of numbers and 
 # returns a list that is the cumulative sum of the numbers in the list.
 # - cumulative_sum([1, 1, 1]) returns [1, 2, 3]
