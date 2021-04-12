@@ -219,3 +219,10 @@ print('The average name length is:', (sum_length / num_students))
 
 # 20. What is the highest pet age for light coffee drinkers?
 
+highest_pet_age = 0
+for student in students:
+    if student['coffee_preference'] == 'light':
+        for pet in student['pets']:
+            if pet['age'] >= highest_pet_age:
+                highest_pet_age = pet['age']
+print(f'The highest pet age for light coffee drinkers is {highest_pet_age}')
