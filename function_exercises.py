@@ -114,13 +114,27 @@ remove_vowels('tree')
 # - everything should be lowercase
 # - spaces should be replaced with underscores
 
-def remove_symbols(word):
-    characters = []
+def normalize_name(word):
+
+# create an empty string
+    characters = ''
+    
+# removing symbols
     for letter in word:
         if letter.isalnum() or letter == ' ' or letter == '_':
-            characters.append(letter)
+            characters += letter
+            
+# checking first character for digits, removing            
+    while characters[0].isdigit():
+        characters = characters[1:]
+    
+# removing leading and trailing whitespace, making all lowercase, 
+# and replacing spaces with underscores
+    characters = characters.strip().lower().replace(' ', '_')
+    
+    return characters
 
-def
+normalize_name('%99 sr_Tg ae^46& sfg')
 
 # 11. Write a function named cumulative_sum that accepts a list of numbers and 
 # returns a list that is the cumulative sum of the numbers in the list.
