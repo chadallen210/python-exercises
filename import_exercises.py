@@ -52,7 +52,10 @@ perms
 # Use the load function from the json module to open this file.
 # Your code should produce a list of dictionaries. Using this data, 
 # write some code that calculates and outputs the following information:
-#
+
+import json
+profiles = json.load(open('profiles.json'))
+
 # - Total number of users
 
 len(profiles)
@@ -92,3 +95,52 @@ round(average_balance, 2)
 
 # - User with the lowest balance
 
+lowest_balance = float('inf')
+min_user = {}
+
+for profile in profiles:
+    balance = float(profile['balance'].replace('$', '').replace(',', ''))
+    if balance < lowest_balance:
+        lowest_balance = balance
+        min_user = profile
+        
+min_user
+
+# - User with the highest balance
+
+highest_balance = 0
+max_user = {}
+
+for profile in profiles:
+    balance = float(profile['balance'].replace('$', '').replace(',', ''))
+    if balance > highest_balance:
+        highest_balance = balance
+        max_user = profile
+
+max_user
+
+# - Most common favorite fruit
+
+fruit_list = [accnt['favoriteFruit'] for accnt in profiles]
+
+fruit_counts = {}
+
+for fruit in fruit_list:
+    if fruit not in fruit_counts.keys():
+        fruit_counts[fruit] = 1
+    else:
+        fruit_counts[fruit] += 1
+
+for k, v in fruit_counts.items():
+    if v == max(fruit_counts.values()):
+        print(k)
+
+# - Least most common favorite fruit
+
+for k, v in fruit_counts.items():
+    if v == min(fruit_counts.values()):
+        print(k)
+
+# - Total number of unread messages for all users
+
+sum([int(''.join([val for val in accnt['greeting'] if val.isdigit()])) for accnt in profiles])
