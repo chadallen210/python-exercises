@@ -145,6 +145,6 @@ def cumulative_sum(numbers):
     sums = []
     total = 0
     for number in range(0, len(numbers)):
-        total += list[number]
+        total += numbers[number]
         sums.append(total)
     return sums
