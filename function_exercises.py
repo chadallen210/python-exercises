@@ -141,3 +141,10 @@ normalize_name('%99 sr_Tg ae^46& sfg')
 # - cumulative_sum([1, 1, 1]) returns [1, 2, 3]
 # - cumulative_sum([1, 2, 3, 4]) returns [1, 3, 6, 10]
 
+def cumulative_sum(numbers):
+    sums = []
+    total = 0
+    for number in range(0, len(numbers)):
+        total += list[number]
+        sums.append(total)
+    return sums
