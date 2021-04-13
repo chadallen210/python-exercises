@@ -3,20 +3,21 @@
 # 1. Define a function named is_two. It should accept one input and return True 
 # if the passed input is either the number or the string 2, False otherwise.
 
-def is_two(number):
-    if number == 2 or number == '2':
+def is_two(value):
+    if value == 2 or value == '2':
         return True
     return False
-    
+
 is_two(2)
 is_two(4)
 
 # 2. Define a function named is_vowel. It should return True if the passed 
 # string is a vowel, False otherwise.
 
-def is_vowel(letter):
-    if letter.isalpha() and letter.lower() in ['a', 'e', 'i', 'o', 'u']:
-        return True
+def is_vowel(value):
+    if type(value) == str:
+        if value.isalpha() and value.lower() in ['a', 'e', 'i', 'o', 'u']:
+            return True
     return False
 
 is_vowel('a')
@@ -26,9 +27,10 @@ is_vowel('b')
 # string is a consonant, False otherwise. Use your is_vowel function to accomplish 
 # this.
 
-def is_consonant(letter):
-    if letter.isalpha() and letter.lower() not in ['a', 'e', 'i', 'o', 'u']:
-        return True
+def is_consonant(value):
+    if type(value) == str:
+        if value.isalpha() and not is_vowel(value):
+            return True
     return False
 
 is_consonant('b')
