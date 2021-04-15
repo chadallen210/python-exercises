@@ -121,9 +121,12 @@ for student in students:
 blends = dict()
 for drink in coffee_list:
     blends[drink] = coffee_list.count(drink)
+print(blends)
 least_choice = []
 for key in blends:
-    if blends[key] == min(coffee_list.values()):
+    if blends[key] == min(blends.values()):
+        least_choice.append(key)
+print('The least frequent coffee preferences are:', least_choice[0], ',', least_choice[1])
 
 
 # 12. What is the average grade for students with at least 2 pets?
